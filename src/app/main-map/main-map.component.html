@@ -1,0 +1,68 @@
+
+<div class="main">
+    <div class="canvas-container">
+        <canvas #canvas width="700" height="700"></canvas>
+    </div>
+    <div>
+        <h2>Ships</h2>
+        <ul class="ship-list-ul">
+            <ng-container *ngFor="let ship of ships">
+                <li class="ship-list" *ngIf="ship.isAi == 'False'" [ngClass]="{'red-outline': ship.isAi != 'True', 'hactive': hoverShip == ship.uid}" (click)="mouseEnter(ship.uid)" (mouseenter)="mouseEnter(ship.uid)" (mouseleave)="mouseLeave()" [ngClass]="{'active': hoverShip == ship.uid}">
+                    <div>
+                        <span *ngIf="ship.isAi != 'True'">
+                            {{getAlias(ship.pilot)}}
+                        </span>
+                        <span *ngIf="ship.isAi == 'True'">
+                            AI
+                        </span>
+                        <span *ngIf="ship.isAirship == 'True'">
+                            Airship
+                        </span>
+                        <span *ngIf="ship.isLandship == 'True'">
+                            Landship
+                        </span>
+                        <span *ngIf="ship.isWatercraft == 'True'">
+                            Watercraft
+                        </span>
+                        ({{ship.uid}})
+                    </div>
+                    <div>
+                        {{ship.position}}
+                    </div>
+                </li>
+            </ng-container>
+            <ng-container *ngFor="let ship of ships">
+                <li class="ship-list" *ngIf="ship.isAi == 'True'"
+                            [ngClass]="{'red-outline': ship.isAi != 'True', 'hactive': hoverShip == ship.uid}"
+                            (click)="mouseEnter(ship.uid)" (mouseenter)="mouseEnter(ship.uid)" (mouseleave)="mouseLeave()"
+                            [ngClass]="{'active': hoverShip == ship.uid}">
+                    <div>
+                        <span *ngIf="ship.isAi != 'True'">
+                            {{getAlias(ship.pilot)}}
+                        </span>
+                        <span *ngIf="ship.isAi == 'True'">
+                            AI
+                        </span>
+                        <span *ngIf="ship.isAirship == 'True'">
+                            Airship
+                        </span>
+                        <span *ngIf="ship.isLandship == 'True'">
+                            Landship
+                        </span>
+                        <span *ngIf="ship.isWatercraft == 'True'">
+                            Watercraft
+                        </span>
+                        ({{ship.uid}})
+                    </div>
+                    <div>
+                        {{ship.position}}
+                    </div>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+    <div>
+        <h2>Chat</h2>
+        <app-chat [players]="players"></app-chat>
+    </div>
+</div>

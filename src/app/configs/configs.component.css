@@ -1,0 +1,78 @@
+
+.basic-settings {
+    padding: 10px 20px;
+    margin: 20px;
+    background: white;
+    display: block;
+    border-radius: 5px;
+    border: 2px solid #bbbbbb;
+}
+
+.basic-settings ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.basic-settings li {
+    font-size: 0.8rem;
+    border: 2px solid #bbbbbb;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+.config-lists {
+    display: flex;
+    padding: 10px;
+}
+
+.config-lists .config-list {
+    flex-grow: 1;
+    font-size: 0.8rem;
+    border: 2px solid #bbbbbb;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+.config-lists .config-list h2 {
+    border-bottom: 1px solid #333333;
+    margin: 0 0 5px 0;
+    padding: 0 0 5px 0;
+}
+
+.config-lists .config-list ul {
+    list-style-type: disc;
+    font-size: 1rem;
+    margin: 0 0 0 20px;
+}
+
+.config-lists .config-list span {
+    color: #3498db;
+    cursor: pointer;
+}
+
+.config-input {
+    position: relative;
+    margin: 10px 0 5px;
+}
+
+.config-input input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.config-input button {
+    position: absolute;
+    right: 5px;
+    font-size: 1rem;
+    color: #ffffff;
+    border: 2px solid #bbbbbb;
+    font-weight: bold;
+    background: #246a99;
+    border-radius: 5px;
+    margin: 5px 0 5px;
+    cursor: pointer;
+}

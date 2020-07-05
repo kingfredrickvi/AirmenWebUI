@@ -1,0 +1,138 @@
+
+<ul class="player-main">
+    <ng-container *ngFor="let ship of _ships">
+        <li class="player-block"  *ngIf="ship.isAi == 'False'" [ngClass]="{'red-outline': ship.isAi != 'True'}">
+            <h2 (click)="toggle(ship.uid)">
+                <span *ngIf="ship.isAi == 'False'">
+                    {{getAlias(ship.pilot)}}
+                </span>
+                <span *ngIf="ship.isAi == 'True'">
+                    AI
+                </span>
+                <span *ngIf="ship.airship == 'True'">
+                    Airship
+                </span>
+                <span *ngIf="ship.landship == 'True'">
+                    Landship
+                </span>
+                <span *ngIf="ship.waterCraft == 'True'">
+                    Watercraft
+                </span>
+                ({{ship.uid}})
+            </h2>
+            <ul class="player-items" *ngIf="showing[ship.uid]">
+                <li>Bounty: {{ ship.bounty }}</li>
+                <li>Crew Orders: {{ ship.crewOrders }}</li>
+                <li>gravity: {{ ship.gravity }}</li>
+                <li>hasEverHadBounty: {{ ship.hasEverHadBounty }}</li>
+                <li>hasPressure: {{ ship.hasPressure }}</li>
+                <li>hasSkullBounty: {{ ship.hasSkullBounty }}</li>
+                <li>isAi: {{ ship.isAi }}</li>
+                <li>isAirship: {{ ship.isAirship }}</li>
+                <li>isFirepowerLegal: {{ ship.isFirepowerLegal }}</li>
+                <li>isLandship: {{ ship.isLandship }}</li>
+                <li>isPirateKing: {{ ship.isPirateKing }}</li>
+                <li>isPlayerFortress: {{ ship.isPlayerFortress }}</li>
+                <li>isWatercraft: {{ ship.isWatercraft }}</li>
+                <li>mass: {{ ship.mass }}</li>
+                <li>maxPressure: {{ ship.maxPressure }}</li>
+                <li>originalCreator: {{ ship.originalCreator }}</li>
+                <li>partCount: {{ ship.partCount }}</li>
+                <li>pilot: {{ ship.pilot }}</li>
+                <li>position: {{ ship.position }}</li>
+                <li>pressureReq: {{ ship.pressureReq }}</li>
+                <li>rotation: {{ ship.rotation }}</li>
+                <li>state: {{ ship.state }}</li>
+                <li>team: {{ ship.team }}</li>
+                <li>uid: {{ ship.uid }}</li>
+                <li>wasRecentlyDamaged: {{ ship.wasRecentlyDamaged }}</li>
+            </ul>
+            <div class="data-input" *ngIf="showing[ship.uid] && showingInput && showingInputId == ship.uid">
+                <label for="dataInput">
+                    {{ showingInput }}
+                    <input [(ngModel)]="inputData" type="text" id="dataInput" name="dataInput">
+                </label>
+                <button (click)="submitInput(ship.uid)">
+                    Submit
+                </button>
+            </div>
+            <ul class="cheat-actions" *ngIf="showing[ship.uid]">
+                <li (click)="changeInput('Teleport', ship.uid)">Teleport</li>
+                <li (click)="repair(ship.uid)">Repair</li>
+                <li (click)="refillTools(ship.uid)">Refill Tools</li>
+                <li (click)="refillScrap(ship.uid)">Refill Scrap</li>
+                <li (click)="teleportAll(ship.uid)">Teleport All Here</li>
+                <li (click)="teleport(ship.uid)" *ngIf="selectedPoint">Teleport To Point</li>
+            </ul>
+            <ul class="admin-actions" *ngIf="showing[ship.uid]">
+            </ul>
+        </li>
+    </ng-container>
+    <ng-container *ngFor="let ship of _ships">
+        <li class="player-block"  *ngIf="ship.isAi == 'True'" [ngClass]="{'red-outline': ship.isAi != 'True'}">
+            <h2 (click)="toggle(ship.uid)">
+                <span *ngIf="ship.isAi == 'False'">
+                    {{getAlias(ship.pilot)}}
+                </span>
+                <span *ngIf="ship.isAi == 'True'">
+                    AI
+                </span>
+                <span *ngIf="ship.isAirship == 'True'">
+                    Airship
+                </span>
+                <span *ngIf="ship.isLandship == 'True'">
+                    Landship
+                </span>
+                <span *ngIf="ship.isWatercraft == 'True'">
+                    Watercraft
+                </span>
+                ({{ship.uid}})
+            </h2>
+            <ul class="player-items" *ngIf="showing[ship.uid]">
+                <li>bounty: {{ ship.bounty }}</li>
+                <li>crewOrders: {{ ship.crewOrders }}</li>
+                <li>gravity: {{ ship.gravity }}</li>
+                <li>hasEverHadBounty: {{ ship.hasEverHadBounty }}</li>
+                <li>hasPressure: {{ ship.hasPressure }}</li>
+                <li>hasSkullBounty: {{ ship.hasSkullBounty }}</li>
+                <li>isAi: {{ ship.isAi }}</li>
+                <li>isAirship: {{ ship.isAirship }}</li>
+                <li>isFirepowerLegal: {{ ship.isFirepowerLegal }}</li>
+                <li>isLandship: {{ ship.isLandship }}</li>
+                <li>isPirateKing: {{ ship.isPirateKing }}</li>
+                <li>isPlayerFortress: {{ ship.isPlayerFortress }}</li>
+                <li>isWatercraft: {{ ship.isWatercraft }}</li>
+                <li>mass: {{ ship.mass }}</li>
+                <li>maxPressure: {{ ship.maxPressure }}</li>
+                <li>originalCreator: {{ ship.originalCreator }}</li>
+                <li>partCount: {{ ship.partCount }}</li>
+                <li>pilot: {{ ship.pilot }}</li>
+                <li>position: {{ ship.position }}</li>
+                <li>pressureReq: {{ ship.pressureReq }}</li>
+                <li>rotation: {{ ship.rotation }}</li>
+                <li>state: {{ ship.state }}</li>
+                <li>team: {{ ship.team }}</li>
+                <li>uid: {{ ship.uid }}</li>
+                <li>wasRecentlyDamaged: {{ ship.wasRecentlyDamaged }}</li>
+            </ul>
+            <div class="data-input" *ngIf="showing[ship.uid] && showingInput && showingInputId == ship.uid">
+                <label for="dataInput">
+                    {{ showingInput }}
+                    <input [(ngModel)]="inputData" type="text" name="dataInput">
+                </label>
+                <button (click)="submitInput(ship.uid)">
+                    Submit
+                </button>
+            </div>
+            <ul class="cheat-actions" *ngIf="showing[ship.uid]">
+                <li (click)="changeInput('Teleport', ship.uid)">Teleport</li>
+                <li (click)="repair(ship.uid)">Repair</li>
+                <li (click)="refillTools(ship.uid)">Refill Tools</li>
+                <li (click)="refillScrap(ship.uid)">Refill Scrap</li>
+            </ul>
+            <ul class="admin-actions" *ngIf="showing[ship.uid]">
+                <li (click)="destory(ship.uid)">Destroy</li>
+            </ul>
+        </li>
+    </ng-container>
+</ul>

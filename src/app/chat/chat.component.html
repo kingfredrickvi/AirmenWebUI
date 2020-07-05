@@ -1,0 +1,30 @@
+
+<ul #chatbox>
+    <li *ngFor="let message of messages[this.settings.currentServer]">
+        <div class="message">
+            <div *ngIf="!message.join && !message.leave" class="username">
+                (<span *ngIf="message.team == -2">Nearby</span>
+                <span *ngIf="message.team == 0">Ally</span>
+                <span *ngIf="message.team == -1">Match</span>) {{message.alias}}
+            </div>
+            <div *ngIf="message.join">
+                {{message.alias}} ({{message.steamId}}) has joined the game!
+            </div>
+            <div *ngIf="message.leave">
+                {{message.alias}} ({{message.steamId}}) has left the game!
+            </div>
+            <div *ngIf="!message.join && !message.leave">
+                {{message.message}}
+            </div>
+            <div class="time">
+                {{message.timestamp}}
+            </div>
+        </div>
+    </li>
+</ul>
+<div class="config-input">
+    <form (ngSubmit)="sendChat(f)">
+        <input type="text" name="chatInput" [(ngModel)]="chatInput">
+        <button (click)="sendChat()">Send</button>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+
+<div>
+    <div class="basic-settings" *ngIf="_configs">
+        <ul>
+            <li>Name: {{ _configs.name }}</li>
+            <li>Map: {{ _configs.map }}</li>
+            <li>Game Mode: {{ _configs.gameMode }}</li>
+            <li>Auto AI: {{ _configs.autoAI }}</li>
+            <li>Require Steam: {{ _configs.requireSteam }}</li>
+            <li>Bonus Team Mass: {{ _configs.bonusTeamMass }}</li>
+            <li>Steam API Key: {{ _configs.steamAPIKey }}</li>
+        </ul>
+    </div>
+
+    <div class="config-lists" *ngFor="let lst of lists">
+        <div *ngFor="let item of lst" class="config-list">
+            <h2>{{ item.title }}</h2>
+            <div class="config-input">
+                <input type="text" name="item.value" [(ngModel)]="_configsInputs[item.value]">
+                <button (click)="add(item.value)">Add</button>
+            </div>
+            <ul *ngIf="_configs">
+                <li *ngFor="let name of _configs[item.value]">
+                    {{ name }} (<span (click)="remove(item.value, name)">Remove</span>)
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

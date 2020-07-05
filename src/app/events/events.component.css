@@ -1,0 +1,31 @@
+
+.basic-settings {
+    padding: 10px 20px;
+    margin: 20px;
+    background: white;
+    display: block;
+    border-radius: 5px;
+    border: 2px solid #bbbbbb;
+}
+
+.basic-settings ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.basic-settings h2 {
+    margin: 0 0 5px 5px;
+    padding: 0 0 5px 0;
+}
+
+.basic-settings button {
+    font-size: 0.8rem;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 5px;
+    border: 2px solid #2980b9;
+    background: #246a99;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -1,0 +1,96 @@
+DNTeamManager
+> Start()
+
+AirmenMod.WebServer.Main(this);
+
+DNTeamManager
+> readyPlayer()
+
+AirmenMod.WebServer.ChatMessage(component.steamID.ToString(), null, 0);
+
+ChatMessage
+> RecieveMessage()
+
+WebServer.ChatMessage(m, sender, team, from);
+
+lobbyPlayerManager
+> OnDestroy()
+
+AirmenMod.WebServer.ChatMessage(this.steamID.ToString(), null, 1);
+
+
+lobbyPlayerManager
+> CompleteSync()
+
+
+
+680870
+
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install -y htop screen steamcmd
+
+mkdir steam
+mkdir -p /root/.config/unity3d/Airborne\ Games/Airmen/
+
+cat <<EOT >> /root/.config/unity3d/Airborne\ Games/Airmen/ServerSettings.txt
+{
+    "name": "[EU/GE] KingFredrickVI Test Server",
+    "moderators": [],
+    "ipBans": [
+        "dummyIP1",
+        "dummyIP2"
+    ],
+    "admins": [],
+    "steamModerators": [],
+    "steamBans": [],
+    "steamAdmins": [
+        76561198079126590
+    ],
+    "gameMode": 0,
+    "map": 0,
+    "requireSteam": true,
+    "steamAPIKey": "",
+    "autoAI": false,
+    "bonusTeamMass": 0,
+    "bannedParts": [
+        127,
+        128,
+        171,
+        158
+    ]
+}
+EOT
+
+cat <<EOT >> steam.txt
+login anonymous
+force_install_dir /root/steam/airmen
+app_update 680870
+EOT
+
+steamcmd +runscript steam.txt +quit
+
+cat <<EOT >> /root/steam/airmen/start.sh
+export TERM=xterm
+./airmenserv.x86_64 -batchmode -nographics
+EOT
+
+chmod +x /root/steam/airmen/start.sh
+
+cd /root/steam/airmen
+
+ln -s /root/.steam/steamcmd/linux64/steamclient.so /root/steam/airmen/
+ln -s /root/.config/unity3d/Airborne\ Games/Airmen/ /root/steam/airmen/conf
+
+
+
+Make top header same below map
+List Admins and mods, add admins, mods, perm
+
+
+
+
+ServerBrowser
+> InitSteamServer()
+
+
+Make ShipManager.IncreaseBounty public

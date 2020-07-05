@@ -1,0 +1,28 @@
+
+.main {
+    display: flex;
+}
+
+.main div {
+    flex: 1;
+}
+
+.main-header ul {
+    display: flex;
+    justify-content: space-evenly;
+    background: #dddddd;
+}
+
+.main-header li {
+    font-size: 0.8rem;
+    border-left: 1px solid #999999;
+    flex-grow: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.main-header .active {
+    background: #333333;
+    color: #dddddd;
+}

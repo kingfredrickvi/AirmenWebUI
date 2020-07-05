@@ -1,0 +1,13 @@
+
+<div>
+    <ul>
+        <ng-container *ngFor="let server of settings.servers; let i = index">
+            <li (click)="setServer(i)" [ngClass]="{'active': settings.currentServer == i}">
+                {{ server.name }}            
+            </li>
+        </ng-container>
+    </ul>
+    <div *ngIf="settings.servers?.length == 0" class="header-error">
+        No servers found in /assets/settings.json
+    </div>
+</div>

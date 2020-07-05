@@ -1,0 +1,45 @@
+
+.main {
+    display: flex;
+}
+
+.main > div {
+    flex: 1;
+    padding: 10px;
+}
+
+canvas {
+    border: 1px solid #333333;
+    margin: 10px;
+}
+
+.canvas-container {
+    text-align: center;
+}
+
+.active {
+    color: #27ae60;
+}
+
+.ship-list {
+    display: block;
+    border-radius: 5px;
+    cursor: pointer;
+    background: white;
+    border: 2px solid #bbbbbb;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.red-outline {
+    border: 2px solid #c0392b;
+}
+
+.hactive {
+    background: #efefef;
+}
+
+.ship-list-ul {
+    height: 690px;
+    overflow-y: auto;
+}

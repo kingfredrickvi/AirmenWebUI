@@ -1,0 +1,112 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.player-header {
+    background: #dfdfdf;
+    padding: 20px 0 0 25px;
+}
+
+.player-main {
+    background: #dfdfdf;
+    padding: 10px 0;
+}
+
+.player-block {
+    padding: 10px 20px;
+    margin: 20px;
+    background: white;
+    display: block;
+    border-radius: 5px;
+    border: 2px solid #bbbbbb;
+}
+
+.player-block h2 {
+    font-size: 1.0rem;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.player-items {
+    display: flex;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+
+.player-items li {
+    font-size: 0.8rem;
+    border: 2px solid #bbbbbb;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+.cheat-actions {
+    display: flex;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+
+.cheat-actions li {
+    font-size: 0.8rem;
+    border: 2px solid #2980b9;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 5px;
+    background: #246a99;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.admin-actions {
+    display: flex;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+
+.admin-actions li {
+    font-size: 0.8rem;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 5px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.blue {
+    border: 2px solid #2980b9;
+    background: #246a99;
+}
+
+.red {
+    border: 2px solid #8f2b20;
+    background: #e74c3c;
+}
+
+.data-input {
+    margin: 5px;
+}
+
+.data-input input {
+    display: block;
+    padding: 5px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.data-input button {
+    padding: 7px 10px;
+    border: 2px solid #2980b9;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 5px;
+    background: #246a99;
+    margin: 10px 0 0;
+    cursor: pointer;
+}    
+

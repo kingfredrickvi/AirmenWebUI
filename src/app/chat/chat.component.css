@@ -1,0 +1,58 @@
+
+ul {
+    background: #dfdfdf;
+    padding: 10px;
+    height: 630px;
+    overflow-y: auto;
+}
+
+li * {
+    font-size: 0.75rem;
+}
+
+.username {
+    clear: both;
+}
+
+.message {
+    display: block;
+    border-radius: 5px;
+    background: white;
+    border: 2px solid #bbbbbb;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.message > div {
+    padding-bottom: 5px;
+}
+
+.time {
+    color: #999999;
+    text-align: right;
+}
+
+.config-input {
+    position: relative;
+    margin: 10px 0 5px;
+}
+
+.config-input input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 65px 5px 5px;
+    font-size: 1rem;
+}
+
+.config-input button {
+    position: absolute;
+    right: 5px;
+    font-size: 1rem;
+    color: #ffffff;
+    border: 2px solid #bbbbbb;
+    font-weight: bold;
+    background: #246a99;
+    border-radius: 5px;
+    margin: 5px 0 5px;
+    cursor: pointer;
+}

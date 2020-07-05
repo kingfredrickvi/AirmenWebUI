@@ -1,0 +1,24 @@
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    background: #dddddd;
+}
+
+li {
+    font-size: 0.8rem;
+    border-left: 1px solid #999999;
+    flex-grow: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.active {
+    background: #333333;
+    color: #dddddd;
+}
+
+.header-error {
+    padding: 20px;
+}

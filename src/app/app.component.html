@@ -1,0 +1,35 @@
+<div class="header">
+  <app-header></app-header>
+</div>
+<div class="map">
+  <app-main-map></app-main-map>
+</div>
+<div class="main-container">
+  <div class="main-header">
+    <ul>
+        <ng-container *ngFor="let header of bottomHeaders; let i = index">
+            <li (click)="setBottomHeader(i)" [ngClass]="{'active': bottomHeaderId == i}">
+                {{ header }}
+            </li>
+        </ng-container>
+    </ul>
+  </div>
+  <div class="main" *ngIf="bottomHeaderId == 0">
+    <div>
+      <app-players></app-players>
+    </div>
+    <div>
+      <app-ships></app-ships>
+    </div>
+  </div>
+  <div class="main" *ngIf="bottomHeaderId == 1">
+    <div>
+      <app-configs></app-configs>
+    </div>
+  </div>
+  <div class="main" *ngIf="bottomHeaderId == 2">
+    <div>
+      <app-events></app-events>
+    </div>
+  </div>
+</div>

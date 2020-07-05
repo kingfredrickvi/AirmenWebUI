@@ -1,0 +1,42 @@
+
+<h2 class="player-header">Players ({{_players?.length}})</h2>
+<ul class="player-main">
+    <ng-container class="player-block" *ngFor="let player of _players">
+        <li class="player-block">
+            <div (click)="toggle(player.steamId)">
+                <h2>{{player.name}} ({{player.steamId}})</h2>
+            </div>
+            <ul class="player-items" *ngIf="showing[player.steamId]">
+                <li>SteamId: {{player.steamId}}</li>
+                <li>Dead: {{player.dead}}</li>
+                <li>Is Captain: {{player.isCaptain}}</li>
+                <li>Is Ready: {{player.isReady}}</li>
+                <li>Piloting: {{player.piloting}}</li>
+                <li>Deaths: {{player.deaths}}</li>
+                <li>Team: {{player.team}}</li>
+                <li>Crew: {{player.crew}}</li>
+                <li>Hp: {{player.hp}}</li>
+                <li>Position: {{player.position}}</li>
+                <li>Rotation: {{player.rotation}}</li>
+            </ul>
+            <div class="data-input" *ngIf="showing[player.steamId] && showingInput && showingInputId == player.steamId">
+                <label for="dataInput">
+                    {{ showingInput }}
+                    <input [(ngModel)]="inputData" type="text" name="dataInput">
+                </label>
+                <button (click)="submitInput(player.steamId)">
+                    Submit
+                </button>
+            </div>
+            <ul class="cheat-actions" *ngIf="showing[player.steamId]">
+                <li (click)="changeInput('Teleport', player.steamId)">Teleport</li>
+                <li (click)="teleportAll(player.steamId)">Teleport All Here</li>
+            </ul>
+            <ul class="admin-actions">
+                <li class="red" (click)="kick(player.steamId)">Kick</li>
+                <li class="red" (click)="kill(player.steamId)">Kill</li>
+                <li class="blue" (click)="heal(player.steamId)">Heal</li>
+            </ul>
+        </li>
+    </ng-container>
+</ul>
