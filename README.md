@@ -2,6 +2,8 @@
 
 A UI for the AirmenWebAPI.
 
+https://github.com/kingfredrickvi/AirmenWebAPI
+
 To change the settings, edit `/assets/settings.template.json` and move it to `/assets/settings.json`
 
 ```
